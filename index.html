@@ -1236,7 +1236,7 @@ input[type=range].ui-range::-webkit-slider-thumb {
   overflow: hidden;
 }
 .bm-shell.inspector-open {
-  grid-template-rows: 52px 1fr 120px;
+  grid-template-rows: 52px 1fr 165px;
   grid-template-areas:
     "topbar  topbar"
     "canvas  stats"
@@ -1287,11 +1287,11 @@ input[type=range].ui-range::-webkit-slider-thumb {
 /* ─── Tooltip ─── */
 .bm-tooltip {
   position: absolute; pointer-events: none;
-  background: rgba(6,12,26,.95);
+  background: rgba(4,8,22,.97);
   border: 1px solid var(--border-md);
-  border-radius: 9px; padding: 10px 14px;
-  min-width: 160px;
-  box-shadow: 0 0 24px rgba(0,180,255,.18);
+  border-radius: 10px; padding: 11px 15px;
+  min-width: 172px;
+  box-shadow: 0 0 28px rgba(0,180,255,.22), inset 0 1px 0 rgba(255,255,255,.04);
   z-index: 20; transition: opacity .12s;
 }
 .bm-tt-name {
@@ -1300,10 +1300,10 @@ input[type=range].ui-range::-webkit-slider-thumb {
 }
 .bm-tt-type {
   font-family: var(--f-head); font-size: 9px;
-  letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 5px;
+  letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 6px;
 }
-.bm-tt-info  { font-size: 11px; color: var(--t2); margin-bottom: 4px; }
-.bm-tt-hint  { font-size: 9px; color: var(--t4); font-family: var(--f-mono); }
+.bm-tt-info  { font-size: 11px; color: var(--t2); margin-bottom: 5px; }
+.bm-tt-hint  { font-size: 9px; color: var(--amber); font-family: var(--f-mono); }
 
 /* ─── Zoom controls ─── */
 .bm-zoom-controls {
@@ -1322,13 +1322,16 @@ input[type=range].ui-range::-webkit-slider-thumb {
 /* ─── Legend ─── */
 .bm-legend {
   position: absolute; top: 14px; left: 14px;
-  background: rgba(4,7,18,.9);
-  border: 1px solid var(--border); border-radius: 9px;
-  padding: 11px 14px; z-index: 10;
+  background: rgba(3,6,16,.92);
+  border: 1px solid rgba(0,180,255,.2); border-radius: 10px;
+  padding: 12px 15px; z-index: 10;
+  box-shadow: 0 0 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.03);
+  backdrop-filter: blur(4px);
 }
 .bm-legend-title {
   font-family: var(--f-head); font-size: 8px;
-  letter-spacing: 2px; color: var(--t3); margin-bottom: 8px;
+  letter-spacing: 2px; color: var(--t3); margin-bottom: 9px;
+  border-bottom: 1px solid var(--border); padding-bottom: 6px;
 }
 .bm-legend-item {
   display: flex; align-items: center; gap: 8px;
@@ -1340,19 +1343,22 @@ input[type=range].ui-range::-webkit-slider-thumb {
 }
 .bm-legend-hint {
   font-size: 9px; color: var(--t4); font-family: var(--f-mono);
-  margin-top: 4px; letter-spacing: .5px;
+  margin-top: 6px; letter-spacing: .5px;
+  border-top: 1px solid var(--border); padding-top: 6px;
 }
 
 /* ─── Inspector ─── */
 .bm-inspector {
   grid-area: inspect;
   display: none; flex-direction: column;
-  background: #060c1a; border-top: 1px solid var(--border);
+  background: #060c1a; border-top: 1px solid rgba(0,180,255,.3);
+  box-shadow: 0 -4px 20px rgba(0,0,0,.4);
 }
 .bm-shell.inspector-open .bm-inspector { display: flex; }
 .bm-inspector-bar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 5px 14px; border-bottom: 1px solid var(--border);
+  padding: 6px 14px; border-bottom: 1px solid var(--border);
+  background: rgba(0,180,255,.04);
 }
 .bm-inspector-title {
   font-family: var(--f-head); font-size: 10px;
@@ -1364,32 +1370,34 @@ input[type=range].ui-range::-webkit-slider-thumb {
 }
 .bm-inspector-close:hover { color: var(--red); }
 .bm-inspector-body {
-  display: flex; gap: 20px; padding: 8px 14px; flex: 1; min-height: 0;
+  display: flex; gap: 20px; padding: 10px 14px; flex: 1; min-height: 0;
+  overflow: hidden;
 }
-.bm-insp-col { display: flex; flex-direction: column; gap: 5px; min-width: 165px; }
-.bm-insp-row { display: flex; gap: 8px; align-items: center; }
+.bm-insp-col { display: flex; flex-direction: column; gap: 6px; min-width: 175px; }
+.bm-insp-row { display: flex; gap: 8px; align-items: flex-start; }
 .bm-insp-lbl {
   font-family: var(--f-head); font-size: 8px; letter-spacing: 1.5px;
-  color: var(--t3); min-width: 82px;
+  color: var(--t3); min-width: 88px; padding-top: 2px;
 }
 .bm-insp-val { font-size: 12px; color: var(--t1); }
 .bm-insp-desc {
-  flex: 1; font-size: 12px; color: var(--t2); line-height: 1.65;
-  padding: 4px 0 4px 16px;
+  flex: 1; font-size: 12px; color: var(--t2); line-height: 1.7;
+  padding: 4px 0 4px 18px;
   border-left: 1px solid var(--border);
 }
 
 /* ─── Stats panel ─── */
 .bm-stats-panel {
   grid-area: stats;
-  background: #08111f; border-left: 1px solid var(--border);
+  background: #07101e; border-left: 1px solid var(--border);
   padding: 14px; overflow-y: auto;
 }
 .bm-stats-panel::-webkit-scrollbar { width: 4px; }
 .bm-stats-panel::-webkit-scrollbar-thumb { background: var(--t4); border-radius: 2px; }
 .bm-stats-title {
   font-family: var(--f-head); font-size: 10px; font-weight: 700;
-  letter-spacing: 2px; color: var(--t2); margin-bottom: 12px;
+  letter-spacing: 2px; color: var(--cyan); margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
 }
 .bm-stats-section {
   font-family: var(--f-head); font-size: 8px; letter-spacing: 2px;
@@ -1405,8 +1413,10 @@ input[type=range].ui-range::-webkit-slider-thumb {
 .bm-count-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 4px; }
 .bm-count-card {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 8px; padding: 8px; text-align: center;
+  border-radius: 8px; padding: 9px; text-align: center;
+  transition: border-color .15s;
 }
+.bm-count-card:hover { border-color: var(--border-md); }
 .bm-count-val { font-family: var(--f-head); font-size: 17px; font-weight: 700; }
 .bm-count-lbl { font-family: var(--f-head); font-size: 7px; letter-spacing: 1.5px; color: var(--t3); margin-top: 2px; }
 .bm-absorb-log { display: flex; flex-direction: column; gap: 5px; }
@@ -2569,7 +2579,192 @@ input[type=range].ui-range::-webkit-slider-thumb {
 .adm-audit-sub  { font-size:11px; color:var(--t2); }
 .adm-audit-time { font-size:10px; color:var(--t3); margin-top:2px; }
 
+
+/* ═══════════════════════════════════════════════════════
+   NEURAL BRAIN REGIONS (from yui_brain_ui rebuild)
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --r-prefrontal:#f472b6;
+  --r-motor:#eab308;
+  --r-sensory:#06b6d4;
+  --r-association:#e2e8f0;
+  --r-predictive:#ef4444;
+  --r-feature:#a855f7;
+  --r-concept:#f97316;
+  --r-hippo:#84cc16;
+  --r-reflex:#f43f5e;
+  --r-cerebellum:#22c55e;
+  --r-brainstem:#3b82f6;
+  --r-language:#ec4899;
+}
+
+/* ── NEURAL BRAIN CANVAS ── */
+#nb-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;display:block}
+#nb-canvas:active{cursor:grabbing}
+
+/* ── HUD OVERLAY ── */
+#nb-hud{position:absolute;inset:0;pointer-events:none;z-index:10}
+
+/* ── STATUS PANEL top-left ── */
+#nb-status-panel{
+  position:absolute;top:14px;left:14px;
+  background:rgba(4,7,15,.78);border:1px solid rgba(0,180,255,.28);
+  border-radius:12px;padding:12px 16px;
+  font-family:var(--f-head);backdrop-filter:blur(8px);
+  min-width:200px;pointer-events:auto;z-index:50;
+}
+.nbsp-label{font-size:8px;letter-spacing:2px;color:var(--t2);margin-bottom:8px;opacity:.7}
+.nbsp-status{font-size:14px;font-weight:700;letter-spacing:2px;margin-bottom:10px;color:var(--green)}
+.nbsp-status.ready{color:var(--green)}
+.nbsp-status.listening{color:var(--cyan)}
+.nbsp-status.thinking{color:var(--amber)}
+.nbsp-timer{font-family:var(--f-mono);font-size:11px;color:var(--t2);margin-bottom:10px;opacity:.7}
+.nbsp-timer span{color:var(--cyan)}
+.nbsp-ptt{font-size:9px;color:var(--t2);letter-spacing:1px;border-top:1px solid rgba(0,180,255,.15);padding-top:8px;opacity:.5}
+
+/* ── YUI AVATAR BOX — far left side under LOG tab ── */
+#nb-yui-avatar-box{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:8px 0 12px;border-top:1px solid rgba(0,180,255,.1);
+  margin-top:4px;pointer-events:auto;
+}
+.nb-yui-cam-frame{
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid var(--cyan);position:relative;overflow:hidden;
+  box-shadow:0 0 12px rgba(0,212,255,.35),0 0 30px rgba(0,212,255,.1);
+  background:radial-gradient(circle at 40% 35%,#0a2040,#04070f);
+  cursor:pointer;transition:box-shadow .3s;flex-shrink:0;
+}
+.nb-yui-cam-frame:hover{box-shadow:0 0 20px rgba(0,212,255,.6),0 0 50px rgba(0,212,255,.2)}
+.nb-yui-cam-frame.thinking{box-shadow:0 0 16px rgba(245,158,11,.7);border-color:var(--amber)}
+.nb-yui-cam-frame.listening{box-shadow:0 0 16px rgba(0,212,255,.9)}
+.nb-yui-face{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.nb-yui-face svg{width:44px;height:44px;opacity:.9}
+.nb-yui-scanline{
+  position:absolute;inset:0;border-radius:50%;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.04) 2px,rgba(0,212,255,.04) 4px);
+  pointer-events:none;
+}
+.nb-yui-ring{
+  position:absolute;inset:-3px;border-radius:50%;
+  border:1px dashed rgba(0,212,255,.3);
+  animation:spin-ring 12s linear infinite;
+}
+.nb-yui-ring2{
+  position:absolute;inset:-7px;border-radius:50%;
+  border:1px dotted rgba(0,212,255,.15);
+  animation:spin-ring 20s linear infinite reverse;
+}
+.nb-yui-name{font-family:var(--f-head);font-size:8px;letter-spacing:2px;color:var(--cyan);text-align:center}
+.nb-yui-status-row{display:flex;align-items:center;gap:4px;font-family:var(--f-head);font-size:7px;color:var(--t2);letter-spacing:1px}
+.nb-yui-s-dot{width:4px;height:4px;border-radius:50%;background:var(--green);box-shadow:0 0 4px var(--green)}
+@keyframes spin-ring{to{transform:rotate(360deg)}}
+
+/* ── REGION LEGEND ── */
+#nb-brain-legend{
+  position:absolute;top:14px;right:14px;
+  background:rgba(4,7,15,.82);border:1px solid rgba(0,180,255,.18);
+  border-radius:12px;padding:12px 14px;
+  backdrop-filter:blur(8px);pointer-events:auto;z-index:50;
+  max-height:calc(100% - 140px);overflow-y:auto;min-width:160px;
+}
+.nb-legend-title{font-family:var(--f-head);font-size:8px;letter-spacing:2px;color:var(--t2);margin-bottom:10px;opacity:.7}
+.nb-legend-item{display:flex;align-items:center;gap:7px;margin-bottom:6px;cursor:pointer;border-radius:5px;padding:2px 4px;transition:background .15s}
+.nb-legend-item:hover{background:rgba(255,255,255,.04)}
+.nb-legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.nb-legend-name{font-family:var(--f-head);font-size:7.5px;letter-spacing:1px;color:var(--t2);flex:1}
+.nb-legend-firing{font-family:var(--f-mono);font-size:8.5px;color:var(--t2)}
+.nb-legend-bar{width:36px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;margin-top:2px}
+.nb-legend-bar-fill{height:100%;border-radius:2px;transition:width .5s}
+
+/* ── HTML REGION LABELS (floating over canvas) ── */
+.nb-brain-label{
+  position:absolute;transform:translate(-50%,-50%);
+  pointer-events:auto;cursor:pointer;
+  font-family:var(--f-head);font-size:8.5px;font-weight:700;letter-spacing:1.5px;
+  padding:3px 9px 3px 7px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(4,7,15,.78);backdrop-filter:blur(4px);
+  white-space:nowrap;transition:transform .15s,box-shadow .15s;
+  line-height:1.2;
+}
+.nb-brain-label:hover{transform:translate(-50%,-50%) scale(1.1)}
+.nb-brain-label .nb-lbl-name{display:block}
+.nb-brain-label .nb-lbl-stats{font-size:7px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.5px}
+
+/* ── AI RESPONSE PANEL ── */
+#nb-brain-response{
+  position:absolute;bottom:14px;left:14px;right:190px;
+  max-height:80px;overflow-y:auto;
+  font-family:var(--f-mono);font-size:11.5px;color:rgba(200,230,255,.85);
+  line-height:1.7;pointer-events:auto;
+  background:rgba(4,7,15,.65);border-radius:10px;
+  padding:10px 14px;border:1px solid rgba(0,180,255,.12);
+  backdrop-filter:blur(6px);display:none;
+}
+#nb-brain-response.visible{display:block;animation:float-in .3s ease}
+#nb-brain-response::-webkit-scrollbar{width:3px}
+.nb-resp-label{font-family:var(--f-head);font-size:7.5px;letter-spacing:2px;color:var(--cyan);margin-bottom:5px}
+
+/* ── NODE DETAIL MODAL (neural brain) ── */
+#nb-node-modal{
+  position:fixed;inset:0;z-index:9999;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(4,7,15,.72);backdrop-filter:blur(6px);
+}
+#nb-node-modal.open{display:flex}
+.nb-modal-box{
+  background:#0b1425;border:1px solid rgba(0,180,255,.5);
+  border-radius:16px;padding:26px 30px;min-width:400px;max-width:540px;
+  position:relative;box-shadow:0 0 40px rgba(0,180,255,.15);
+  animation:modal-in .25s ease;
+}
+@keyframes modal-in{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.nb-modal-accent{height:3px;border-radius:2px;margin-bottom:18px}
+.nb-modal-close{
+  position:absolute;top:13px;right:15px;
+  background:none;border:none;color:var(--t2);font-size:17px;cursor:pointer;
+  transition:color .15s;
+}
+.nb-modal-close:hover{color:var(--t1)}
+.nb-modal-icon{font-size:26px;margin-bottom:10px;display:block}
+.nb-modal-name{font-family:var(--f-head);font-size:16px;font-weight:700;letter-spacing:2px;margin-bottom:5px}
+.nb-modal-id{font-family:var(--f-mono);font-size:10.5px;color:var(--t2);margin-bottom:14px;opacity:.7}
+.nb-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.nb-modal-stat{background:rgba(0,180,255,.04);border:1px solid rgba(0,180,255,.12);border-radius:7px;padding:9px 11px}
+.nb-modal-stat-label{font-family:var(--f-head);font-size:7.5px;letter-spacing:2px;color:var(--t2);margin-bottom:3px;opacity:.7}
+.nb-modal-stat-val{font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nb-modal-desc{font-family:var(--f-mono);font-size:11.5px;color:var(--t2);line-height:1.65;margin-bottom:14px;border-left:2px solid rgba(0,180,255,.28);padding-left:11px}
+.nb-modal-filepath{font-family:var(--f-mono);font-size:9.5px;color:var(--t2);background:rgba(0,0,0,.3);border:1px solid rgba(0,180,255,.12);border-radius:5px;padding:6px 9px;margin-top:9px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:border-color .2s}
+.nb-modal-filepath:hover{border-color:rgba(0,180,255,.28)}
+
+/* BRIDGE_PHASE2_COPY_FIX */
+.conv-messages,
+.msg-bubble,
+.terminal,
+.log-terminal,
+.log-line {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+/* ---- PYWEBVIEW INPUT WIRING PHASE 1 ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  const inp = document.getElementById('conv-input');
+  if (inp && !inp.dataset.yuiBridgeWired) {
+    inp.dataset.yuiBridgeWired = '1';
+    inp.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        sendChatMsg();
+      }
+    });
+  }
+});
+
+</script>
 </head>
 <body>
 
@@ -2773,6 +2968,36 @@ input[type=range].ui-range::-webkit-slider-thumb {
         <span class="nav-icon">🛡</span> ADMIN
       </div>
 
+
+      <!-- Yui Avatar Box — under Log area -->
+      <div id="nb-yui-avatar-box">
+        <div class="nb-yui-cam-frame" id="nb-yui-cam" title="Camera vision toggle">
+          <div class="nb-yui-face">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="38" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+              <circle cx="40" cy="36" r="20" fill="rgba(0,85,170,0.4)" stroke="rgba(0,212,255,0.5)" stroke-width="1"/>
+              <ellipse cx="40" cy="36" rx="12" ry="14" fill="rgba(56,189,248,0.15)"/>
+              <ellipse cx="33" cy="33" rx="4" ry="5" fill="rgba(0,212,255,0.9)"/>
+              <ellipse cx="47" cy="33" rx="4" ry="5" fill="rgba(0,212,255,0.9)"/>
+              <circle cx="34" cy="32" r="1.5" fill="white"/>
+              <circle cx="48" cy="32" r="1.5" fill="white"/>
+              <path d="M34 42 Q40 46 46 42" stroke="rgba(0,212,255,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M20 20 L28 30" stroke="rgba(0,212,255,0.2)" stroke-width="0.5"/>
+              <path d="M60 20 L52 30" stroke="rgba(0,212,255,0.2)" stroke-width="0.5"/>
+              <path d="M18 58 Q40 70 62 58" stroke="rgba(0,180,255,0.3)" stroke-width="1" fill="none"/>
+              <text x="34" y="77" font-family="monospace" font-size="6" fill="rgba(0,212,255,0.5)" letter-spacing="3">CAM</text>
+            </svg>
+          </div>
+          <div class="nb-yui-scanline"></div>
+          <div class="nb-yui-ring"></div>
+          <div class="nb-yui-ring2"></div>
+        </div>
+        <div class="nb-yui-name">YUI</div>
+        <div class="nb-yui-status-row">
+          <div class="nb-yui-s-dot" id="nb-yui-s-dot"></div>
+          <span id="nb-yui-status-text" style="font-family:var(--f-head);font-size:7px;letter-spacing:1px;color:var(--t2)">ONLINE</span>
+        </div>
+      </div>
       <!-- Footer -->
       <div class="sidebar-footer">
         <div style="font-size:11px;color:var(--cyan);cursor:pointer;margin-bottom:8px"
@@ -2888,7 +3113,7 @@ input[type=range].ui-range::-webkit-slider-thumb {
               <div class="conv-input-row">
                 <input class="conv-input" id="conv-input"
                   placeholder="Type your message..."
-                  onkeydown="if(event.key==='Enter')sendChatMsg()">
+                 >
                 <button class="conv-send" onclick="sendChatMsg()">➤</button>
               </div>
             </div>
@@ -3239,128 +3464,79 @@ input[type=range].ui-range::-webkit-slider-thumb {
 </div>
 
 
-<div id="page-brain_map" class="page-view">
-<div class="bm-shell">
+<div id="page-brain_map" class="page-view" style="position:relative;overflow:hidden">
+  <!-- Neural Brain Canvas -->
+  <canvas id="nb-canvas"></canvas>
 
-  <!-- Top controls bar -->
-  <div class="bm-topbar">
-    <div class="bm-topbar-left">
-      <span class="bm-title">🧠 YUI BRAIN MAP</span>
-      <span class="bm-sub">memory · files · systems · live activity · drag to orbit · scroll to zoom</span>
-    </div>
-    <div class="bm-topbar-center">
-      <div class="bm-filter-btn active-filter" onclick="bmSetFilter('all',this)">ALL</div>
-      <div class="bm-filter-btn" onclick="bmSetFilter('memory',this)">MEMORY</div>
-      <div class="bm-filter-btn" onclick="bmSetFilter('system',this)">SYSTEM</div>
-      <div class="bm-filter-btn" onclick="bmSetFilter('project',this)">PROJECTS</div>
-      <div class="bm-filter-btn" onclick="bmSetFilter('reference',this)">REFERENCE</div>
-    </div>
-    <div class="bm-topbar-right">
-      <button class="btn btn-outline" onclick="bmReset()">⟳ Reset View</button>
-      <button class="btn btn-primary" onclick="bmStimulate()">⚡ Stimulate</button>
-    </div>
-  </div>
+  <!-- HUD Overlay -->
+  <div id="nb-hud">
 
-  <!-- Canvas + overlays -->
-  <div class="bm-canvas-wrap" id="bm-canvas-wrap">
-    <canvas id="bm-canvas"></canvas>
-
-    <!-- Hover tooltip -->
-    <div id="bm-tooltip" class="bm-tooltip hidden">
-      <div class="bm-tt-name" id="bm-tt-name">node</div>
-      <div class="bm-tt-type" id="bm-tt-type">type</div>
-      <div class="bm-tt-info" id="bm-tt-info">info</div>
-      <div class="bm-tt-hint">double-click to inspect</div>
+    <!-- Status panel top-left -->
+    <div id="nb-status-panel">
+      <div class="nbsp-label">NEURAL STATUS</div>
+      <div class="nbsp-status ready" id="nb-status">READY</div>
+      <div class="nbsp-timer">Session <span id="nb-timer">00:00:00</span></div>
+      <div class="nbsp-ptt">SPACE = PUSH TO TALK · SCROLL = ZOOM</div>
     </div>
 
-    <!-- Zoom + pan controls -->
-    <div class="bm-zoom-controls">
-      <button class="bm-zoom-btn" onclick="bmZoom(1.2)">+</button>
-      <button class="bm-zoom-btn" onclick="bmZoom(0.85)">−</button>
-      <button class="bm-zoom-btn" onclick="bmReset()">⟳</button>
+    <!-- Region legend top-right -->
+    <div id="nb-brain-legend">
+      <div class="nb-legend-title">BRAIN REGIONS</div>
+      <!-- Populated by JS -->
     </div>
 
-    <!-- Legend -->
-    <div class="bm-legend">
-      <div class="bm-legend-title">CLUSTER LEGEND</div>
-      <div class="bm-legend-item"><div class="bm-legend-dot" style="background:#00d4ff;box-shadow:0 0 6px #00d4ff"></div>Core / System</div>
-      <div class="bm-legend-item"><div class="bm-legend-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></div>Memory</div>
-      <div class="bm-legend-item"><div class="bm-legend-dot" style="background:#a855f7;box-shadow:0 0 6px #a855f7"></div>Projects</div>
-      <div class="bm-legend-item"><div class="bm-legend-dot" style="background:#22c55e;box-shadow:0 0 6px #22c55e"></div>Reference</div>
-      <div class="bm-legend-item"><div class="bm-legend-dot" style="background:#f472b6;box-shadow:0 0 6px #f472b6"></div>Active Recall</div>
-      <div class="bm-legend-hint">drag = orbit &nbsp;·&nbsp; shift+drag = pan &nbsp;·&nbsp; scroll = zoom</div>
-    </div>
-  </div>
-
-  <!-- Inspector panel (shown on double-click) -->
-  <div class="bm-inspector" id="bm-inspector">
-    <div class="bm-inspector-bar">
-      <span class="bm-inspector-title" id="bm-insp-title">Select a node to inspect</span>
-      <span class="bm-inspector-close" onclick="bmCloseInspector()">✕ close</span>
-    </div>
-    <div class="bm-inspector-body">
-      <div class="bm-insp-col">
-        <div class="bm-insp-row"><span class="bm-insp-lbl">NODE ID</span><span class="bm-insp-val font-mono" id="bm-insp-id">—</span></div>
-        <div class="bm-insp-row"><span class="bm-insp-lbl">TYPE</span><span class="bm-insp-val" id="bm-insp-type">—</span></div>
-        <div class="bm-insp-row"><span class="bm-insp-lbl">LINKS</span><span class="bm-insp-val" id="bm-insp-links">—</span></div>
-      </div>
-      <div class="bm-insp-col">
-        <div class="bm-insp-row"><span class="bm-insp-lbl">CONFIDENCE</span><span class="bm-insp-val text-cyan" id="bm-insp-conf">—</span></div>
-        <div class="bm-insp-row"><span class="bm-insp-lbl">LAST ACCESS</span><span class="bm-insp-val" id="bm-insp-access">—</span></div>
-        <div class="bm-insp-row"><span class="bm-insp-lbl">STATUS</span><span class="bm-insp-val text-green" id="bm-insp-status">—</span></div>
-      </div>
-      <div class="bm-insp-desc" id="bm-insp-desc">—</div>
-    </div>
-  </div>
-
-  <!-- Right stats panel -->
-  <div class="bm-stats-panel">
-    <div class="bm-stats-title">RECALL ANALYTICS</div>
-
-    <div class="bm-stats-section">ACTIVE PATHWAYS</div>
-    <div class="bm-pathway">
-      <div class="bm-pw-hdr"><span>Core → Memory</span><span class="bm-pw-pct">98%</span></div>
-      <div class="stat-track"><div class="stat-fill" style="width:98%"></div></div>
-    </div>
-    <div class="bm-pathway">
-      <div class="bm-pw-hdr"><span>Projects → Core</span><span class="bm-pw-pct">74%</span></div>
-      <div class="stat-track"><div class="stat-fill" style="width:74%"></div></div>
-    </div>
-    <div class="bm-pathway">
-      <div class="bm-pw-hdr"><span>Reference → Index</span><span class="bm-pw-pct">31%</span></div>
-      <div class="stat-track"><div class="stat-fill" style="width:31%"></div></div>
+    <!-- AI Response panel bottom -->
+    <div id="nb-brain-response">
+      <div class="nb-resp-label">YUI</div>
+      <div class="nb-resp-text" id="nb-resp-text"></div>
     </div>
 
-    <div class="bm-stats-divider"></div>
-    <div class="bm-stats-section">NODE COUNTS</div>
-    <div class="bm-count-grid">
-      <div class="bm-count-card"><div class="bm-count-val" style="color:#f59e0b">247</div><div class="bm-count-lbl">MEMORY</div></div>
-      <div class="bm-count-card"><div class="bm-count-val" style="color:#00d4ff">12</div><div class="bm-count-lbl">SYSTEM</div></div>
-      <div class="bm-count-card"><div class="bm-count-val" style="color:#a855f7">39</div><div class="bm-count-lbl">PROJECT</div></div>
-      <div class="bm-count-card"><div class="bm-count-val" style="color:#22c55e">84</div><div class="bm-count-lbl">REFERENCE</div></div>
-    </div>
+  </div><!-- /nb-hud -->
 
-    <div class="bm-stats-divider"></div>
-    <div class="bm-stats-section">TOTAL NODES</div>
-    <div style="font-family:var(--f-head);font-size:24px;font-weight:700;color:var(--t1);margin-bottom:4px">1,402</div>
-    <div class="bm-stats-section">SYNAPSES</div>
-    <div style="font-family:var(--f-head);font-size:24px;font-weight:700;color:var(--cyan)">8,941</div>
+  <!-- HTML label layer -->
+  <div id="nb-brain-labels"></div>
 
-    <div class="bm-stats-divider"></div>
-    <div class="bm-stats-section">ACTIVITY PULSE</div>
-    <canvas id="bm-mini-pulse" style="width:100%;height:50px;display:block"></canvas>
-
-    <div class="bm-stats-divider"></div>
-    <div class="bm-stats-section">CORE ABSORPTION LOG</div>
-    <div id="bm-absorb-log" class="bm-absorb-log">
-      <div class="bm-absorb-entry" style="color:#f59e0b">memory absorbed · 2s ago</div>
-      <div class="bm-absorb-entry" style="color:#a855f7">project synced · 8s ago</div>
-      <div class="bm-absorb-entry" style="color:#22c55e">reference indexed · 15s ago</div>
-    </div>
+  <!-- Zoom controls -->
+  <div class="bm-zoom-controls">
+    <button class="bm-zoom-btn" onclick="nbZoom(1.2)">+</button>
+    <button class="bm-zoom-btn" onclick="nbZoom(0.85)">−</button>
+    <button class="bm-zoom-btn" onclick="nbReset()">⟳</button>
   </div>
 
 </div>
+<!-- Node Detail Modal (neural brain) -->
+<div id="nb-node-modal">
+  <div class="nb-modal-box">
+    <button class="nb-modal-close" onclick="nbCloseModal()">✕</button>
+    <div class="nb-modal-accent" id="nb-modal-accent"></div>
+    <span class="nb-modal-icon" id="nb-modal-icon"></span>
+    <div class="nb-modal-name" id="nb-modal-name"></div>
+    <div class="nb-modal-id" id="nb-modal-id"></div>
+    <div class="nb-modal-grid">
+      <div class="nb-modal-stat">
+        <div class="nb-modal-stat-label">NEURONS</div>
+        <div class="nb-modal-stat-val" id="nb-modal-neurons" style="color:var(--cyan)">—</div>
+      </div>
+      <div class="nb-modal-stat">
+        <div class="nb-modal-stat-label">FIRING RATE</div>
+        <div class="nb-modal-stat-val" id="nb-modal-firing" style="color:var(--amber)">—</div>
+      </div>
+      <div class="nb-modal-stat">
+        <div class="nb-modal-stat-label">LAST READ</div>
+        <div class="nb-modal-stat-val" id="nb-modal-time" style="color:var(--green)">—</div>
+      </div>
+      <div class="nb-modal-stat">
+        <div class="nb-modal-stat-label">FILE</div>
+        <div class="nb-modal-stat-val" id="nb-modal-file" style="color:var(--t2);font-size:11px">—</div>
+      </div>
+    </div>
+    <div class="nb-modal-desc" id="nb-modal-desc"></div>
+    <div class="nb-modal-filepath" onclick="alert('Opens file directory — wired in full build')">
+      📁 <span id="nb-modal-filepath-text">—</span>
+    </div>
+  </div>
 </div>
+
             <div id="page-memory" class="page-view">
 <div class="mem-shell">
 
@@ -6043,8 +6219,6 @@ input[type=range].ui-range::-webkit-slider-thumb {
         </div>
       </div>
 
-    </div><!-- /cfg-panels — gaming + integrations inserted above -->
-
       <!-- GAMING SETTINGS PANEL -->
       <div class="cfg-panel hidden" id="cfgp-gaming">
         <div class="cfg-section-title">🎮 Gaming Settings</div>
@@ -6207,8 +6381,9 @@ input[type=range].ui-range::-webkit-slider-thumb {
       </div>
 
     </div><!-- /cfg-panels -->
-</div>
-</div>
+  </div><!-- /cfg-body -->
+</div><!-- /cfg-shell -->
+</div><!-- /page-settings -->
       <!-- ═══════════════════════════════════════════
            GAMES PAGE
            ═══════════════════════════════════════════ -->
@@ -6835,16 +7010,16 @@ input[type=range].ui-range::-webkit-slider-thumb {
     </div>
 
     <!-- Big mic -->
-    <div class="dock-mic" onclick="toggleListening()" title="Tap or Hold to Talk">
+    <div class="dock-mic" onmousedown="dockPttPress()" onmouseup="dockPttRelease()" onmouseleave="dockPttRelease()" title="Hold to Talk">
       <div class="dock-mic-ring"></div>
       <div class="dock-mic-icon">🎤</div>
       <div class="dock-mic-hint">TAP / HOLD</div>
     </div>
 
-    <div class="dock-btn" onclick="dockToggle(this,'HANDS FREE','ON','OFF')">
+    <div class="dock-btn" onclick="dockHandsFree()">
       <div class="dock-btn-icon">🖐</div>
-      <div class="dock-btn-lbl">HANDS (SAFE)</div>
-      <div class="dock-btn-status dg">READY</div>
+      <div class="dock-btn-lbl">HANDS FREE</div>
+      <div class="dock-btn-status dg">ON</div>
     </div>
 
     <div class="dock-btn dock-btn-red" onclick="dockMicOff()">
@@ -6989,36 +7164,131 @@ function navTo(pageId, navEl) {
   const label = document.getElementById('tb-page-label');
   if (label) label.textContent = pageId.toUpperCase().replace('_', ' ');
 }
+
+/* ---- PYWEBVIEW BRIDGE PATCH PHASE 1 ---- */
+function yuiEscapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[ch]));
+}
+
+function yuiApiReady() {
+  return !!(window.pywebview && window.pywebview.api);
+}
+
+async function yuiApiCall(name, ...args) {
+  try {
+    if (!yuiApiReady()) {
+      console.warn('pywebview api not ready:', name);
+      return null;
+    }
+    const fn = window.pywebview.api[name];
+    if (typeof fn !== 'function') {
+      console.warn('pywebview api missing:', name);
+      return null;
+    }
+    return await fn(...args);
+  } catch (err) {
+    console.error('pywebview api error:', name, err);
+    return null;
+  }
+}
+
+function yuiChat(text) {
+  const raw = String(text ?? '');
+  const msgs = document.getElementById('conv-messages');
+  if (!msgs) return;
+
+  let who = 'Yui';
+  let cls = 'yui';
+  let bubble = 'yui-bubble';
+  let body = raw;
+
+  if (raw.startsWith('You:')) {
+    who = 'You';
+    cls = 'you';
+    bubble = 'you-bubble';
+    body = raw.slice(4).trim();
+  } else if (raw.startsWith('Yui:')) {
+    body = raw.slice(4).trim();
+  } else if (raw.startsWith('SYSTEM:')) {
+    who = 'System';
+    body = raw.slice(7).trim();
+  }
+
+  const row = document.createElement('div');
+  row.className = 'msg-row ' + cls;
+  row.innerHTML = `<div class="msg-from ${cls === 'yui' ? 'yui-from' : ''}">${who}</div>
+    <div class="msg-bubble ${bubble}">${yuiEscapeHtml(body)}</div>`;
+  msgs.appendChild(row);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function yuiLog(text) {
+  const raw = String(text ?? '');
+  const terminal = document.querySelector('.log-terminal');
+  if (terminal) {
+    const line = document.createElement('div');
+    line.className = 'log-line';
+    line.textContent = raw;
+    terminal.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+}
+
+function setStatus(state) {
+  const s = String(state ?? 'IDLE').toUpperCase();
+  const chatStatus = document.getElementById('chat-status-val');
+  const dockStatus = document.getElementById('dock-status');
+  if (chatStatus) chatStatus.textContent = s;
+  if (dockStatus) {
+    dockStatus.textContent = s;
+    dockStatus.style.color = s === 'LISTENING' ? 'var(--cyan)' : s === 'MIC OFF' ? 'var(--red)' : 'var(--green)';
+  }
+}
+
+function setMood(mood, color) {
+  const m = String(mood ?? 'idle').toLowerCase();
+  const dockMood = document.getElementById('dock-mood');
+  if (dockMood) dockMood.textContent = m;
+}
+
 /* ---- CHAT PAGE JS ---- */
 function sendChatMsg() {
   const inp = document.getElementById('conv-input');
+  if (!inp) return;
   const text = inp.value.trim();
   if (!text) return;
-  const msgs = document.getElementById('conv-messages');
-  const row = document.createElement('div');
-  row.className = 'msg-row you';
-  row.innerHTML = `<div class="msg-from">You</div>
-    <div class="msg-bubble you-bubble">${text}</div>`;
-  msgs.appendChild(row);
-  msgs.scrollTop = msgs.scrollHeight;
+
   inp.value = '';
+  yuiApiCall('send_message', text);
 }
 
 function toggleListening() {
   const val = document.getElementById('chat-status-val');
-  const ds  = document.getElementById('dock-status');
-  const dm  = document.getElementById('dock-mood');
-  if (val.textContent === 'IDLE') {
-    val.textContent = 'LISTENING';
-    ds.textContent  = 'LISTENING';
-    dm.textContent  = 'listening';
-    ds.style.color  = 'var(--cyan)';
+  const isListening = val && val.textContent === 'LISTENING';
+
+  if (isListening) {
+    yuiApiCall('ptt_release');
+    setStatus('IDLE');
+    setMood('idle');
   } else {
-    val.textContent = 'IDLE';
-    ds.textContent  = 'IDLE';
-    dm.textContent  = 'idle';
-    ds.style.color  = 'var(--green)';
+    yuiApiCall('ptt_press');
+    setStatus('LISTENING');
+    setMood('listening');
   }
+}
+
+function dockPttPress() {
+  yuiApiCall('ptt_press');
+  setStatus('LISTENING');
+  setMood('listening');
+}
+
+function dockPttRelease() {
+  yuiApiCall('ptt_release');
+  setStatus('IDLE');
+  setMood('idle');
 }
 
 function dockToggle(el, label, stateOn, stateOff) {
@@ -7028,18 +7298,21 @@ function dockToggle(el, label, stateOn, stateOff) {
 }
 
 function dockMicOff() {
-  const ds = document.getElementById('dock-status');
-  const dm = document.getElementById('dock-mood');
-  if (ds) { ds.textContent = 'MIC OFF'; ds.style.color = 'var(--red)'; }
-  if (dm) dm.textContent = 'muted';
+  yuiApiCall('set_voice_mode', 'off');
+  setStatus('MIC OFF');
+  setMood('idle');
+}
+
+function dockHandsFree() {
+  yuiApiCall('set_voice_mode', 'hands_free');
+  setStatus('LISTENING');
+  setMood('listening');
 }
 
 function dockStopTalking() {
-  const ds = document.getElementById('dock-status');
-  const dm = document.getElementById('dock-mood');
-  if (ds) { ds.textContent = 'IDLE'; ds.style.color = 'var(--green)'; }
-  if (dm) dm.textContent = 'idle';
-  alert('Stop Talking — placeholder: interrupts current TTS output in full build.');
+  yuiApiCall('stop_talking');
+  setStatus('IDLE');
+  setMood('idle');
 }
 
 function chatNav(el) {
@@ -7188,417 +7461,444 @@ window.addEventListener('load', () => {
   setTimeout(drawDashboardPulse, 150);
 });
 /* ═══════════════════════════════════════════════════════
-   BRAIN MAP ENGINE v2  — 3D orbit · glowing core · absorption
+   NEURAL BRAIN ENGINE (Three.js particle cloud + absorption travel)
    ═══════════════════════════════════════════════════════ */
 (function () {
 'use strict';
 
-var COLORS={system:'#00d4ff',memory:'#f59e0b',project:'#a855f7',reference:'#22c55e',active:'#f472b6'};
-
-var NODES=[
-  {id:'core',label:'YUI CORE',type:'system',r:34,conf:'99.9%',access:'Just now',links:1402,desc:'Central reasoning and decision engine.'},
-  {id:'memory_json',label:'memory.json',type:'system',r:17,conf:'98.2%',access:'2s ago',links:247,desc:'Primary long-term memory storage file.'},
-  {id:'code_map',label:'code_map.json',type:'system',r:14,conf:'97.1%',access:'12s ago',links:39,desc:'Live index of all project source files.'},
-  {id:'emotion',label:'emotion_engine',type:'system',r:13,conf:'95.0%',access:'1m ago',links:18,desc:'Tracks mood, stress, confidence, energy.'},
-  {id:'identity',label:'identity_guard',type:'system',r:12,conf:'99.9%',access:'30s ago',links:8,desc:'Enforces Yui name and personality.'},
-  {id:'sanity',label:'sanity_gate',type:'system',r:12,conf:'99.5%',access:'30s ago',links:12,desc:'Filters unsafe LLM outputs.'},
-  {id:'brain_mgr',label:'brain_manager',type:'system',r:14,conf:'94.0%',access:'5s ago',links:31,desc:'Routes requests between model and API.'},
-  {id:'m1',label:'user_prefs',type:'memory',r:10,conf:'88%',access:'5m ago',links:14,desc:'Stored user preference memories.'},
-  {id:'m2',label:'project_notes',type:'memory',r:11,conf:'91%',access:'2m ago',links:22,desc:'Memory entries from project discussions.'},
-  {id:'m3',label:'session_ctx',type:'memory',r:10,conf:'100%',access:'Now',links:6,desc:'Current session context buffer.'},
-  {id:'m4',label:'identity_facts',type:'memory',r:9,conf:'99%',access:'10m ago',links:9,desc:'Core identity memories.'},
-  {id:'m5',label:'learning_events',type:'memory',r:9,conf:'85%',access:'1h ago',links:17,desc:'Events where Yui learned.'},
-  {id:'m6',label:'emotion_state',type:'memory',r:9,conf:'82%',access:'3m ago',links:11,desc:'Emotional state snapshots.'},
-  {id:'m7',label:'voice_sessions',type:'memory',r:8,conf:'79%',access:'20m ago',links:8,desc:'Voice interaction metadata.'},
-  {id:'m8',label:'snapshot_group',type:'memory',r:10,conf:'90%',access:'30m ago',links:19,desc:'Grouped memory snapshots.'},
-  {id:'p1',label:'ai_project',type:'project',r:14,conf:'96%',access:'1m ago',links:44,desc:'Core AI Co-Partner build project.'},
-  {id:'p2',label:'ui_revamp',type:'project',r:11,conf:'88%',access:'4m ago',links:28,desc:'Full UI redesign project.'},
-  {id:'p3',label:'voice_engine',type:'project',r:10,conf:'85%',access:'15m ago',links:16,desc:'Edge TTS voice synthesis module.'},
-  {id:'r1',label:'active_body',type:'reference',r:15,conf:'97%',access:'Now',links:247,desc:'All active Yui source files (x247).'},
-  {id:'r2',label:'reference_lib',type:'reference',r:12,conf:'90%',access:'1h ago',links:39,desc:'Learning material library.'},
-  {id:'r3',label:'main_memory',type:'reference',r:10,conf:'76%',access:'2h ago',links:128,desc:'Legacy main_memory.json.'},
-  {id:'r4',label:'prompt.txt',type:'reference',r:9,conf:'99%',access:'5m ago',links:1,desc:'Active system prompt.'}
+/* ── REGION DATA ── */
+var NB_REGIONS = [
+  {name:'PREFRONTAL', color:0xf472b6, cssColor:'#f472b6', count:18400, neurons:'18.4K', firingBase:0.6, pos:[0, 2.0, 0], file:'memory.md', icon:'🧠', desc:'Working memory and reasoning. Maps to memory.md. Active when Yui is formulating complex responses or cross-referencing multiple facts.', path:'yui_brain/memory.md'},
+  {name:'MOTOR CORTEX', color:0xeab308, cssColor:'#eab308', count:2500, neurons:'2.5K', firingBase:0.3, pos:[-1.8, 1.0, 0.5], file:'skills.md', icon:'⚡', desc:'Action execution and skill routing. Maps to skills.md. Contains what Yui knows how to do — tool calls, automation scripts, and operational behaviors.', path:'yui_brain/skills.md'},
+  {name:'SENSORY', color:0x06b6d4, cssColor:'#06b6d4', count:10700, neurons:'10.7K', firingBase:0.5, pos:[2.0, 0.5, 0], file:'context.md', icon:'👁', desc:'Real-time context processing. Maps to context.md. Handles current session state — what project is active, what the user is doing right now.', path:'yui_brain/context.md'},
+  {name:'ASSOCIATION', color:0xe2e8f0, cssColor:'#e2e8f0', count:37200, neurons:'37.2K', firingBase:0.8, pos:[0, 0, 0], file:'notes.md', icon:'🔗', desc:'The core knowledge hub. Maps to notes.md — the largest brain file. Connects all other regions. When Yui references notes, this region fires hottest.', path:'yui_brain/notes.md'},
+  {name:'PREDICTIVE', color:0xef4444, cssColor:'#ef4444', count:15600, neurons:'15.6K', firingBase:0.8, pos:[1.8, -0.2, -1.0], file:'notes.md', icon:'🎯', desc:'Predictive modeling and anticipation. Draws from notes.md to anticipate user needs based on patterns.', path:'yui_brain/notes.md'},
+  {name:'FEATURE LAYER', color:0xa855f7, cssColor:'#a855f7', count:19100, neurons:'19.1K', firingBase:1.1, pos:[0, -0.8, 1.5], file:'memory.md', icon:'🧩', desc:'Pattern extraction and feature embedding. Maps to memory.md. Processes raw memories into meaningful features.', path:'yui_brain/memory.md'},
+  {name:'CONCEPT', color:0xf97316, cssColor:'#f97316', count:3800, neurons:'3.8K', firingBase:0.3, pos:[-1.6, -0.5, 0.8], file:'notes.md', icon:'💡', desc:'Abstract concept formation and semantic grouping. Helps Yui understand meaning behind memories. Draws from notes.md semantic links.', path:'yui_brain/notes.md'},
+  {name:'HIPPOCAMPUS', color:0x84cc16, cssColor:'#84cc16', count:3300, neurons:'3.3K', firingBase:1.2, pos:[-1.2, -1.2, 0], file:'memory.md', icon:'🔑', desc:'Long-term memory storage and retrieval. Maps to memory.md. When you tell Yui to "remember" something, this region spikes.', path:'yui_brain/memory.md'},
+  {name:'REFLEX ARC', color:0xf43f5e, cssColor:'#f43f5e', count:4600, neurons:'4.6K', firingBase:4.6, pos:[1.2, -1.5, 0.6], file:'skills.md', icon:'⚡', desc:'Fast-path responses and cached behaviors. Maps to skills.md. Highest firing rate — handles quick reactions and pre-programmed patterns.', path:'yui_brain/skills.md'},
+  {name:'CEREBELLUM', color:0x22c55e, cssColor:'#22c55e', count:7500, neurons:'7.5K', firingBase:0.7, pos:[0, -2.0, -0.5], file:'personality.md', icon:'💙', desc:'Tone calibration, personality consistency, and emotional modulation. Maps to personality.md. The "vibe" regulator.', path:'yui_brain/personality.md'},
+  {name:'BRAINSTEM', color:0x3b82f6, cssColor:'#3b82f6', count:2700, neurons:'2.7K', firingBase:3.6, pos:[0, -2.6, 0], file:'personality.md', icon:'🧬', desc:'Core identity and base operating parameters. Maps to personality.md. Always-on. Contains fundamental values and safety gates.', path:'yui_brain/personality.md'},
+  {name:'LANGUAGE', color:0xec4899, cssColor:'#ec4899', count:4100, neurons:'4.1K', firingBase:0.5, pos:[-2.0, 0.2, -0.6], file:'memory.md', icon:'💬', desc:'Natural language understanding and generation. Cross-references memory.md for context-aware phrasing.', path:'yui_brain/memory.md'},
 ];
 
-var EDGES=[
-  ['core','memory_json'],['core','code_map'],['core','emotion'],
-  ['core','identity'],['core','sanity'],['core','brain_mgr'],
-  ['core','p1'],['core','r1'],['core','m3'],['core','r4'],
-  ['memory_json','m1'],['memory_json','m2'],['memory_json','m3'],
-  ['memory_json','m4'],['memory_json','m5'],['memory_json','m6'],
-  ['memory_json','m7'],['memory_json','m8'],
-  ['brain_mgr','identity'],['brain_mgr','sanity'],['brain_mgr','memory_json'],
-  ['p1','p2'],['p1','p3'],['p1','code_map'],
-  ['r1','code_map'],['r1','r2'],['r2','r3'],
-  ['emotion','m6'],['identity','m4'],['m8','m2']
-];
+/* ── THREE.JS STATE ── */
+var nbScene, nbCamera, nbRenderer, nbBrainGroup;
+var nbParticleSystems = [];
+var nbCentralOrb, nbCentralOrbMat;
+var nbLabelElements = [];
+var nbAnimFrame;
 
-var canvas,ctx,W=800,H=600;
-var rotX=0.35,rotY=0,targetRotX=0.35,targetRotY=0;
-var panX=0,panY=0,targetPanX=0,targetPanY=0;
-var zoom=1,targetZoom=1;
-var dragging=false,shiftDrag=false,lastMX=0,lastMY=0;
-var hoveredNode=null,selectedNode=null;
-var particles=[];
-var coreFlash=[];
-var miniCtx=null;
-var miniData=Array.from({length:50},function(){return Math.random()*60+20;});
-var tick=0,filterMode='all';
-var nodePos3D={};
+/* Orbit state */
+var nbDragging = false, nbPrevMouse = {x:0,y:0};
+var nbRotY = -0.3, nbRotX = 0.25, nbZoomVal = 6.5;
+var nbTargetRotY = nbRotY, nbTargetRotX = nbRotX, nbTargetZoom = nbZoomVal;
+var nbAutoRotate = true;
 
-function bmInit(){
-  canvas=document.getElementById('bm-canvas');
-  if(!canvas)return;
-  ctx=canvas.getContext('2d');
-  resize();
-  window.addEventListener('resize',resize);
-  canvas.addEventListener('mousedown',onMouseDown);
-  canvas.addEventListener('mousemove',onMouseMove);
-  canvas.addEventListener('mouseup',function(){dragging=false;});
-  canvas.addEventListener('mouseleave',function(){dragging=false;hoveredNode=null;});
-  canvas.addEventListener('wheel',onWheel,{passive:true});
-  canvas.addEventListener('dblclick',onDblClick);
-  canvas.addEventListener('contextmenu',function(e){e.preventDefault();});
-  layout3D();
-  requestAnimationFrame(loop);
-}
+/* Firing rates */
+var nbFiringRates = NB_REGIONS.map(function(r){return r.firingBase;});
+var nbFiringTargets = NB_REGIONS.map(function(r){return r.firingBase;});
 
-function resize(){
-  var wrap=document.getElementById('bm-canvas-wrap');
-  if(!wrap||!canvas)return;
-  W=canvas.width=wrap.clientWidth||800;
-  H=canvas.height=wrap.clientHeight||600;
-}
+/* Absorption travel particles */
+var nbTravelParticles = []; // {mesh, src (vec3), t, color, srcType}
+var nbClock = 0;
 
-function layout3D(){
-  nodePos3D['core']={x3:0,y3:0,z3:0};
-  var rings={
-    system:{r:170,tilt:0,nodes:[]},
-    memory:{r:300,tilt:0.55,nodes:[]},
-    project:{r:240,tilt:-0.5,nodes:[]},
-    reference:{r:260,tilt:0,nodes:[]}
-  };
-  NODES.forEach(function(n){
-    if(n.id==='core')return;
-    if(rings[n.type])rings[n.type].nodes.push(n);
-  });
-  Object.keys(rings).forEach(function(k){
-    var ring=rings[k];
-    ring.nodes.forEach(function(n,i){
-      var angle=(i/ring.nodes.length)*Math.PI*2;
-      var jitter=(Math.random()-0.5)*25;
-      var rr=ring.r+jitter;
-      nodePos3D[n.id]={
-        x3:Math.cos(angle)*rr,
-        z3:Math.sin(angle)*rr*Math.cos(ring.tilt),
-        y3:Math.sin(angle)*rr*Math.sin(ring.tilt)+(Math.random()-0.5)*35
-      };
-    });
-  });
-}
+/* Orb pulse color */
+var nbOrbBaseColor = new THREE.Color(0x0077cc);
+var nbOrbCurrentColor = new THREE.Color(0x0077cc);
+var nbOrbTargetColor = new THREE.Color(0x0077cc);
 
-function project(x3,y3,z3){
-  var cosY=Math.cos(rotY),sinY=Math.sin(rotY);
-  var rx=x3*cosY+z3*sinY,ry=y3,rz=-x3*sinY+z3*cosY;
-  var cosX=Math.cos(rotX),sinX=Math.sin(rotX);
-  var ry2=ry*cosX-rz*sinX,rz2=ry*sinX+rz*cosX;
-  var fov=700,sc=fov/(fov+rz2+200);
-  return{sx:W/2+rx*sc*zoom+panX,sy:H/2+ry2*sc*zoom+panY,scale:sc,depth:rz2};
-}
+function nbInit() {
+  var canvas = document.getElementById('nb-canvas');
+  var container = document.getElementById('page-brain_map');
+  if (!canvas || !container) return;
+  var W = container.clientWidth, H = container.clientHeight;
 
-function loop(){
-  tick++;
-  rotX+=(targetRotX-rotX)*0.06;
-  rotY+=(targetRotY-rotY)*0.06;
-  panX+=(targetPanX-panX)*0.08;
-  panY+=(targetPanY-panY)*0.08;
-  zoom+=(targetZoom-zoom)*0.08;
-  if(!dragging){targetPanX+=(0-targetPanX)*0.01;targetPanY+=(0-targetPanY)*0.01;targetRotY+=0.0025;}
-  draw();
-  updateParticles();
-  spawnParticles();
-  drawMiniPulse();
-  requestAnimationFrame(loop);
-}
+  nbScene = new THREE.Scene();
+  nbScene.background = new THREE.Color(0x04070f);
 
-function draw(){
-  ctx.clearRect(0,0,W,H);
-  var bg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*0.75);
-  bg.addColorStop(0,'rgba(6,10,28,1)');
-  bg.addColorStop(1,'rgba(2,4,12,1)');
-  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  nbCamera = new THREE.PerspectiveCamera(50, W/H, 0.1, 100);
+  nbUpdateCamera();
 
-  // dot grid
-  ctx.fillStyle='rgba(0,100,180,.09)';
-  for(var gx=(W/2+panX)%40;gx<W;gx+=40)
-    for(var gy=(H/2+panY)%40;gy<H;gy+=40)
-      ctx.fillRect(gx,gy,1,1);
+  nbRenderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+  nbRenderer.setSize(W, H);
+  nbRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  var visible=NODES.filter(function(n){return filterMode==='all'||n.id==='core'||n.type===filterMode;});
-  var projected=visible.map(function(n){
-    var p3=nodePos3D[n.id]||{x3:0,y3:0,z3:0};
-    var p=project(p3.x3,p3.y3,p3.z3);
-    return Object.assign({n:n},p);
-  }).sort(function(a,b){return a.depth-b.depth;});
-  var visSet=new Set(visible.map(function(n){return n.id;}));
+  nbScene.fog = new THREE.FogExp2(0x04070f, 0.035);
 
-  // edges
-  EDGES.forEach(function(e){
-    if(!visSet.has(e[0])||!visSet.has(e[1]))return;
-    var pa3=nodePos3D[e[0]]||{x3:0,y3:0,z3:0};
-    var pb3=nodePos3D[e[1]]||{x3:0,y3:0,z3:0};
-    var pa=project(pa3.x3,pa3.y3,pa3.z3);
-    var pb=project(pb3.x3,pb3.y3,pb3.z3);
-    var hot=(hoveredNode&&(hoveredNode.id===e[0]||hoveredNode.id===e[1]))||(selectedNode&&(selectedNode.id===e[0]||selectedNode.id===e[1]));
-    ctx.save();
-    ctx.setLineDash([5,6]);
-    ctx.strokeStyle=hot?'rgba(0,212,255,.75)':'rgba(0,180,255,.35)';
-    ctx.lineWidth=hot?2:1.2;
-    if(hot){ctx.shadowBlur=8;ctx.shadowColor='#00d4ff';}
-    ctx.beginPath();ctx.moveTo(pa.sx,pa.sy);ctx.lineTo(pb.sx,pb.sy);ctx.stroke();
-    ctx.setLineDash([]);ctx.restore();
-  });
+  nbBrainGroup = new THREE.Group();
+  nbScene.add(nbBrainGroup);
 
-  // particles
-  particles.forEach(function(p){
-    if(!visSet.has(p.fromId)||!visSet.has(p.toId))return;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r*p.scale,0,Math.PI*2);
-    ctx.fillStyle=p.color;
-    ctx.shadowBlur=16;ctx.shadowColor=p.color;
-    ctx.fill();ctx.shadowBlur=0;
-  });
+  /* Central orb */
+  var orbGeo = new THREE.SphereGeometry(0.42, 32, 32);
+  nbCentralOrbMat = new THREE.MeshBasicMaterial({color: 0x0077cc, transparent: true, opacity: 0.75});
+  nbCentralOrb = new THREE.Mesh(orbGeo, nbCentralOrbMat);
+  nbBrainGroup.add(nbCentralOrb);
 
-  // nodes
-  projected.forEach(function(item){drawNode(item);});
+  /* Orb wireframe */
+  var orbWireGeo = new THREE.SphereGeometry(0.45, 16, 12);
+  var orbWireMat = new THREE.MeshBasicMaterial({color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.22});
+  nbBrainGroup.add(new THREE.Mesh(orbWireGeo, orbWireMat));
 
-  // core flash ripples
-  coreFlash=coreFlash.filter(function(f){return f.t<1;});
-  var cp=project(0,0,0);
-  coreFlash.forEach(function(f){
-    f.t+=0.035;
-    var ripR=38+f.t*130;
-    ctx.save();
-    ctx.globalAlpha=(1-f.t)*0.75;
-    ctx.beginPath();ctx.arc(cp.sx,cp.sy,ripR,0,Math.PI*2);
-    ctx.strokeStyle=f.color;ctx.lineWidth=2.5;
-    ctx.shadowBlur=20;ctx.shadowColor=f.color;
-    ctx.stroke();ctx.restore();
-  });
-}
+  /* Orb outer glow */
+  var glowGeo = new THREE.SphereGeometry(0.95, 16, 16);
+  var glowMat = new THREE.MeshBasicMaterial({color: 0x003366, transparent: true, opacity: 0.18, side: THREE.BackSide});
+  nbBrainGroup.add(new THREE.Mesh(glowGeo, glowMat));
 
-function drawNode(item){
-  var n=item.n,sx=item.sx,sy=item.sy,scale=item.scale;
-  var col=COLORS[n.type]||'#fff';
-  var isHov=hoveredNode&&hoveredNode.id===n.id;
-  var isSel=selectedNode&&selectedNode.id===n.id;
-  var pf=Math.sin(tick*0.035+(nodePos3D[n.id]?nodePos3D[n.id].x3:0)*0.01)*0.2+1;
-  var r=n.r*scale*pf*(isHov?1.35:1);
-  ctx.save();
-
-  if(n.id==='core'){
-    // Big glow halos
-    [100,70,45].forEach(function(gr,idx){
-      var alpha=[0.06,0.12,0.22][idx];
-      var g=ctx.createRadialGradient(sx,sy,0,sx,sy,gr*scale*zoom);
-      g.addColorStop(0,'rgba(0,212,255,'+alpha+')');
-      g.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle=g;
-      ctx.beginPath();ctx.arc(sx,sy,gr*scale*zoom,0,Math.PI*2);ctx.fill();
-    });
-    // Orb
-    var cg=ctx.createRadialGradient(sx-r*0.3,sy-r*0.3,0,sx,sy,r);
-    cg.addColorStop(0,'#b8f4ff');
-    cg.addColorStop(0.3,'#00e0ff');
-    cg.addColorStop(0.65,'#0066cc');
-    cg.addColorStop(1,'#001844');
-    ctx.beginPath();ctx.arc(sx,sy,r,0,Math.PI*2);
-    ctx.fillStyle=cg;
-    ctx.shadowBlur=50;ctx.shadowColor='#00d4ff';
-    ctx.fill();
-    // Bright rim
-    ctx.beginPath();ctx.arc(sx,sy,r,0,Math.PI*2);
-    ctx.strokeStyle='rgba(200,248,255,0.95)';ctx.lineWidth=2.5;ctx.stroke();
-    ctx.shadowBlur=0;
-    // Label
-    ctx.font='bold 11px Orbitron,monospace';
-    ctx.fillStyle='#ffffff';ctx.textAlign='center';
-    ctx.shadowBlur=12;ctx.shadowColor='#00d4ff';
-    ctx.fillText('YUI CORE',sx,sy+r+16*scale);
-    ctx.shadowBlur=0;
-  } else {
-    // Outer glow disc
-    var gr2=ctx.createRadialGradient(sx,sy,0,sx,sy,r*3);
-    gr2.addColorStop(0,col+(isHov?'55':'30'));
-    gr2.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=gr2;
-    ctx.beginPath();ctx.arc(sx,sy,r*3,0,Math.PI*2);ctx.fill();
-    // Node fill
-    ctx.beginPath();ctx.arc(sx,sy,r,0,Math.PI*2);
-    ctx.fillStyle=col+'45';
-    ctx.shadowBlur=isHov?22:14;ctx.shadowColor=col;
-    ctx.fill();
-    // Border
-    ctx.strokeStyle=isSel?'#fff':col;
-    ctx.lineWidth=isSel?2.5:(isHov?2.2:1.8);
-    ctx.stroke();ctx.shadowBlur=0;
-    // Label — show for r>=9 always, smaller on hover
-    if(n.r>=9||isHov||isSel){
-      var fs=Math.max(8,Math.round(9*scale*zoom));
-      ctx.font=fs+'px Orbitron,monospace';
-      ctx.fillStyle=isHov||isSel?'#ffffff':col;
-      ctx.textAlign='center';
-      ctx.shadowBlur=isHov?10:6;ctx.shadowColor=col;
-      ctx.fillText(n.label,sx,sy+r+Math.max(11,11*scale*zoom));
-      ctx.shadowBlur=0;
-    }
+  /* Star field */
+  var starGeo = new THREE.BufferGeometry();
+  var starV = [];
+  for (var i = 0; i < 2800; i++) {
+    starV.push((Math.random()-0.5)*80, (Math.random()-0.5)*80, (Math.random()-0.5)*80);
   }
-  ctx.restore();
+  starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starV, 3));
+  var starMat = new THREE.PointsMaterial({color: 0x334466, size: 0.04, transparent: true, opacity: 0.55});
+  nbScene.add(new THREE.Points(starGeo, starMat));
+
+  /* Region particle clouds */
+  NB_REGIONS.forEach(function(region, idx) {
+    var geo = new THREE.BufferGeometry();
+    var count = Math.min(region.count, 1100);
+    var verts = new Float32Array(count * 3);
+    var cx = region.pos[0], cy = region.pos[1], cz = region.pos[2];
+    var spread = 0.65 + (count/1100) * 0.5;
+    for (var i = 0; i < count; i++) {
+      var theta = Math.random() * Math.PI * 2;
+      var phi = Math.acos(2*Math.random()-1);
+      var r = spread * (0.2 + 0.8*Math.random()) * Math.cbrt(Math.random());
+      verts[i*3]   = cx + r * Math.sin(phi) * Math.cos(theta);
+      verts[i*3+1] = cy + r * Math.sin(phi) * Math.sin(theta);
+      verts[i*3+2] = cz + r * Math.cos(phi);
+    }
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+    var mat = new THREE.PointsMaterial({
+      color: new THREE.Color(region.color),
+      size: 0.033, transparent: true, opacity: 0.72, sizeAttenuation: true
+    });
+    var ps = new THREE.Points(geo, mat);
+    nbBrainGroup.add(ps);
+    nbParticleSystems.push({ps: ps, mat: mat, region: region, idx: idx});
+  });
+
+  /* File/folder dot markers on each region */
+  NB_REGIONS.forEach(function(region) {
+    var dotGeo = new THREE.SphereGeometry(0.07, 8, 8);
+    var dotMat = new THREE.MeshBasicMaterial({color: new THREE.Color(region.color), transparent: true, opacity: 0.9});
+    var dot = new THREE.Mesh(dotGeo, dotMat);
+    dot.position.set(region.pos[0], region.pos[1], region.pos[2]);
+    nbBrainGroup.add(dot);
+  });
+
+  /* HTML labels */
+  nbBuildLabels();
+  nbBuildLegend();
+
+  /* Mouse events */
+  canvas.addEventListener('mousedown', function(e) {
+    nbDragging = true; nbAutoRotate = false;
+    nbPrevMouse = {x: e.clientX, y: e.clientY};
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (!nbDragging) return;
+    var dx = e.clientX - nbPrevMouse.x, dy = e.clientY - nbPrevMouse.y;
+    nbTargetRotY += dx * 0.008;
+    nbTargetRotX += dy * 0.005;
+    nbTargetRotX = Math.max(-1.2, Math.min(1.2, nbTargetRotX));
+    nbPrevMouse = {x: e.clientX, y: e.clientY};
+  });
+  window.addEventListener('mouseup', function() {
+    if (nbDragging) { nbDragging = false; setTimeout(function(){nbAutoRotate=true;}, 3200); }
+  });
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    nbTargetZoom = Math.max(3, Math.min(13, nbTargetZoom + e.deltaY * 0.012));
+  }, {passive: false});
+  canvas.addEventListener('dblclick', function(e) { nbHandleClick(e); });
+
+  /* Resize */
+  window.addEventListener('resize', nbOnResize);
+
+  /* Absorption kick-off: trigger a travel every 2.5s */
+  setInterval(nbSpawnTravelParticle, 2500);
+
+  nbAnimateBrain();
 }
 
-function spawnParticles(){
-  if(tick%12!==0)return;
-  var sources=NODES.filter(function(n){return n.id!=='core';});
-  var src=sources[Math.floor(Math.random()*sources.length)];
-  if(filterMode!=='all'&&src.type!==filterMode)return;
-  var col=COLORS[src.type]||'#fff';
-  var p3=nodePos3D[src.id]||{x3:0,y3:0,z3:0};
-  var s=project(p3.x3,p3.y3,p3.z3);
-  var c=project(0,0,0);
-  particles.push({fromId:src.id,toId:'core',sx:s.sx,sy:s.sy,tx:c.sx,ty:c.sy,x:s.sx,y:s.sy,t:0,speed:0.007+Math.random()*0.009,r:3.5+Math.random()*2,scale:s.scale,color:col,srcType:src.type});
+function nbUpdateCamera() {
+  nbCamera.position.x = Math.sin(nbRotY) * Math.cos(nbRotX) * nbZoomVal;
+  nbCamera.position.y = Math.sin(nbRotX) * nbZoomVal;
+  nbCamera.position.z = Math.cos(nbRotY) * Math.cos(nbRotX) * nbZoomVal;
+  nbCamera.lookAt(0, 0, 0);
+  nbCamera.updateMatrixWorld();
 }
 
-function updateParticles(){
-  var coreP=project(0,0,0);
-  particles=particles.filter(function(p){return p.t<1;});
-  particles.forEach(function(p){
-    p.t+=p.speed;
-    var p3=nodePos3D[p.fromId]||{x3:0,y3:0,z3:0};
-    var src=project(p3.x3,p3.y3,p3.z3);
-    p.x=src.sx+(coreP.sx-src.sx)*p.t;
-    p.y=src.sy+(coreP.sy-src.sy)*p.t;
-    p.scale=src.scale+(1-src.scale)*p.t;
-    if(p.t>=0.97&&!p.absorbed){
-      p.absorbed=true;
-      coreFlash.push({color:p.color,t:0});
-      var log=document.getElementById('bm-absorb-log');
-      if(log){
-        var typeMap={memory:'memory',project:'project',system:'system',reference:'reference',active:'active recall'};
-        var entry=document.createElement('div');
-        entry.className='bm-absorb-entry';entry.style.color=p.color;
-        entry.textContent=(typeMap[p.srcType]||p.srcType)+' absorbed · just now';
-        log.insertBefore(entry,log.firstChild);
-        while(log.children.length>5)log.removeChild(log.lastChild);
+function nbBuildLabels() {
+  var layer = document.getElementById('nb-brain-labels');
+  if (!layer) return;
+  layer.innerHTML = '';
+  nbLabelElements = [];
+  NB_REGIONS.forEach(function(region, idx) {
+    var el = document.createElement('div');
+    el.className = 'nb-brain-label';
+    el.style.color = region.cssColor;
+    el.style.borderColor = region.cssColor + '55';
+    el.style.boxShadow = '0 0 9px ' + region.cssColor + '33';
+    el.innerHTML = '<span class="nb-lbl-name">' + region.name + '</span><span class="nb-lbl-stats" id="nb-lbl-stats-' + idx + '">' + region.neurons + ' · ' + region.firingBase.toFixed(1) + '%</span>';
+    el.onclick = function() { nbOpenModal(idx); };
+    layer.appendChild(el);
+    nbLabelElements.push(el);
+  });
+}
+
+function nbBuildLegend() {
+  var legend = document.getElementById('nb-brain-legend');
+  if (!legend) return;
+  legend.innerHTML = '<div class="nb-legend-title">BRAIN REGIONS</div>';
+  NB_REGIONS.forEach(function(region, idx) {
+    var item = document.createElement('div');
+    item.className = 'nb-legend-item';
+    item.onclick = function() { nbOpenModal(idx); };
+    item.innerHTML = '<div class="nb-legend-dot" style="background:' + region.cssColor + ';box-shadow:0 0 5px ' + region.cssColor + '66"></div>' +
+      '<div><div class="nb-legend-name">' + region.name + '</div>' +
+      '<div class="nb-legend-bar"><div class="nb-legend-bar-fill" id="nb-legend-bar-' + idx + '" style="background:' + region.cssColor + ';width:' + Math.min(100, region.firingBase*20) + '%"></div></div></div>' +
+      '<div class="nb-legend-firing" id="nb-legend-fire-' + idx + '">' + region.firingBase.toFixed(1) + '%</div>';
+    legend.appendChild(item);
+  });
+}
+
+function nbProjectTo2D(pos3) {
+  var container = document.getElementById('page-brain_map');
+  var W = container.clientWidth, H = container.clientHeight;
+  var v = pos3.clone().project(nbCamera);
+  return {x: (v.x*0.5+0.5)*W, y: (-(v.y*0.5)+0.5)*H, behind: v.z > 1};
+}
+
+/* ── ABSORPTION TRAVEL PARTICLE ── */
+function nbSpawnTravelParticle() {
+  if (!nbScene || !nbBrainGroup) return;
+  /* Pick a random non-center region */
+  var validRegions = NB_REGIONS.filter(function(r,i){ return i !== 3; }); // not ASSOCIATION (center)
+  var src = validRegions[Math.floor(Math.random() * validRegions.length)];
+  var travelGeo = new THREE.SphereGeometry(0.065, 6, 6);
+  var travelMat = new THREE.MeshBasicMaterial({color: new THREE.Color(src.color), transparent: true, opacity: 0.95});
+  var travelMesh = new THREE.Mesh(travelGeo, travelMat);
+  travelMesh.position.set(src.pos[0], src.pos[1], src.pos[2]);
+  nbBrainGroup.add(travelMesh);
+
+  /* Draw a dashed line segment toward center (approximated with tiny spheres along path) */
+  var dashCount = 10;
+  var dashes = [];
+  for (var d = 0; d < dashCount; d++) {
+    var t = (d + 0.5) / dashCount;
+    var dashGeo = new THREE.SphereGeometry(0.025, 4, 4);
+    var dashMat = new THREE.MeshBasicMaterial({color: new THREE.Color(src.color), transparent: true, opacity: 0.0});
+    var dashMesh = new THREE.Mesh(dashGeo, dashMat);
+    dashMesh.userData.t = t;
+    nbBrainGroup.add(dashMesh);
+    dashes.push(dashMesh);
+  }
+
+  nbTravelParticles.push({
+    mesh: travelMesh,
+    dashes: dashes,
+    src: new THREE.Vector3(src.pos[0], src.pos[1], src.pos[2]),
+    dst: new THREE.Vector3(0, 0, 0),
+    t: 0,
+    color: src.color,
+    cssColor: src.cssColor,
+    srcType: src.file,
+    absorbed: false
+  });
+}
+
+function nbAnimateBrain() {
+  nbAnimFrame = requestAnimationFrame(nbAnimateBrain);
+  nbClock += 0.012;
+
+  /* Smooth orbit */
+  nbRotY += (nbTargetRotY - nbRotY) * 0.08;
+  nbRotX += (nbTargetRotX - nbRotX) * 0.08;
+  nbZoomVal += (nbTargetZoom - nbZoomVal) * 0.1;
+  if (nbAutoRotate) nbTargetRotY += 0.0015;
+  nbUpdateCamera();
+
+  /* Animate firing rates */
+  if (Math.random() < 0.028) {
+    var ri = Math.floor(Math.random() * NB_REGIONS.length);
+    nbFiringTargets[ri] = NB_REGIONS[ri].firingBase * (0.5 + Math.random() * 2.6);
+  }
+  nbFiringRates = nbFiringRates.map(function(r,i){ return r + (nbFiringTargets[i] - r) * 0.05; });
+
+  /* Animate region particles */
+  nbParticleSystems.forEach(function(item) {
+    var fr = nbFiringRates[item.idx];
+    var pulse = 0.6 + 0.4 * Math.sin(nbClock * (1 + fr*0.3) + item.idx);
+    item.mat.opacity = Math.min(1, 0.52 + pulse * 0.3 * (fr/4));
+    item.mat.size = 0.022 + fr * 0.005 + pulse * 0.007;
+    var lb = document.getElementById('nb-legend-bar-' + item.idx);
+    if (lb) lb.style.width = Math.min(100, fr * 20) + '%';
+    var lf = document.getElementById('nb-legend-fire-' + item.idx);
+    if (lf) lf.textContent = fr.toFixed(1) + '%';
+    var ls = document.getElementById('nb-lbl-stats-' + item.idx);
+    if (ls) ls.textContent = NB_REGIONS[item.idx].neurons + ' · ' + fr.toFixed(1) + '%';
+  });
+
+  /* Animate central orb */
+  if (nbCentralOrb) {
+    var orbPulse = 0.72 + 0.28 * Math.sin(nbClock * 2);
+    nbCentralOrbMat.opacity = orbPulse * 0.82;
+    nbCentralOrb.scale.setScalar(1 + 0.09 * Math.sin(nbClock * 1.5));
+    /* Lerp orb color toward target */
+    nbOrbCurrentColor.lerp(nbOrbTargetColor, 0.06);
+    nbCentralOrbMat.color.set(nbOrbCurrentColor);
+  }
+
+  /* Animate travel (absorption) particles */
+  nbTravelParticles = nbTravelParticles.filter(function(tp) {
+    tp.t += 0.012;
+    if (tp.t > 1.05) {
+      /* Remove */
+      nbBrainGroup.remove(tp.mesh);
+      tp.dashes.forEach(function(d){ nbBrainGroup.remove(d); });
+      return false;
+    }
+    /* Move toward center */
+    tp.mesh.position.lerpVectors(tp.src, tp.dst, Math.min(tp.t, 1));
+    tp.mesh.material.opacity = tp.t < 0.9 ? 0.92 : (1 - (tp.t - 0.9)/0.15);
+
+    /* Animate dash trail */
+    tp.dashes.forEach(function(d) {
+      var dt = d.userData.t;
+      var showT = tp.t - 0.08;
+      var visible = tp.t > dt && showT < dt + 0.18;
+      d.material.opacity = visible ? 0.55 + 0.25 * Math.sin(nbClock * 8 + dt * 20) : 0;
+      if (visible) {
+        d.position.lerpVectors(tp.src, tp.dst, dt);
+      }
+    });
+
+    /* Color the orb when particle absorbed */
+    if (tp.t >= 0.92 && !tp.absorbed) {
+      tp.absorbed = true;
+      nbOrbTargetColor = new THREE.Color(tp.color);
+      /* Flash back to base after 1.5s */
+      setTimeout(function(){ nbOrbTargetColor = new THREE.Color(0x0077cc); }, 1500);
+
+      /* Pulse log entry */
+      var log = document.getElementById('bm-absorb-log');
+      if (log) {
+        var entry = document.createElement('div');
+        var typeMap = {'memory.md':'memory','notes.md':'notes','skills.md':'skill','context.md':'context','personality.md':'identity','tasks.md':'task'};
+        entry.className = 'bm-absorb-entry';
+        entry.style.color = tp.cssColor;
+        entry.textContent = (typeMap[tp.srcType] || tp.srcType) + ' absorbed · just now';
+        log.insertBefore(entry, log.firstChild);
+        if (log.children.length > 6) log.removeChild(log.lastChild);
       }
     }
+    return true;
   });
-}
 
-function drawMiniPulse(){
-  var mc=document.getElementById('bm-mini-pulse');
-  if(!mc)return;
-  if(!miniCtx){mc.width=mc.offsetWidth||180;mc.height=50;miniCtx=mc.getContext('2d');}
-  var mW=mc.width,mH=mc.height;
-  miniCtx.clearRect(0,0,mW,mH);
-  miniData.shift();
-  var last=miniData[miniData.length-1];
-  miniData.push(Math.max(10,Math.min(90,last+(Math.random()-0.5)*12)));
-  var step=mW/(miniData.length-1);
-  miniCtx.beginPath();
-  miniData.forEach(function(v,i){var x=i*step,y=mH-(v/100)*mH*0.85;i===0?miniCtx.moveTo(x,y):miniCtx.lineTo(x,y);});
-  miniCtx.strokeStyle='#00d4ff';miniCtx.lineWidth=1.5;
-  miniCtx.shadowBlur=5;miniCtx.shadowColor='#00d4ff';
-  miniCtx.stroke();miniCtx.shadowBlur=0;
-}
-
-function onMouseDown(e){dragging=true;shiftDrag=e.shiftKey||e.button===2;lastMX=e.clientX;lastMY=e.clientY;}
-function onMouseMove(e){
-  if(dragging){
-    var dx=e.clientX-lastMX,dy=e.clientY-lastMY;
-    lastMX=e.clientX;lastMY=e.clientY;
-    if(shiftDrag||e.shiftKey){targetPanX+=dx;targetPanY+=dy;}
-    else{targetRotY+=dx*0.008;targetRotX+=dy*0.008;targetRotX=Math.max(-1.2,Math.min(1.2,targetRotX));}
-    return;
-  }
-  var rect=canvas.getBoundingClientRect();
-  var mx=e.clientX-rect.left,my=e.clientY-rect.top;
-  var visSet=new Set(NODES.filter(function(n){return filterMode==='all'||n.id==='core'||n.type===filterMode;}).map(function(n){return n.id;}));
-  var hit=null;
-  NODES.forEach(function(n){
-    if(!visSet.has(n.id))return;
-    var p3=nodePos3D[n.id]||{x3:0,y3:0,z3:0};
-    var p=project(p3.x3,p3.y3,p3.z3);
-    var pf=Math.sin(tick*0.035+p3.x3*0.01)*0.2+1;
-    var r=n.r*p.scale*pf+10;
-    var ddx=mx-p.sx,ddy=my-p.sy;
-    if(ddx*ddx+ddy*ddy<r*r)hit=n;
+  /* Update HTML labels */
+  NB_REGIONS.forEach(function(region, idx) {
+    var regionCenter = new THREE.Vector3(region.pos[0], region.pos[1], region.pos[2]);
+    regionCenter.applyEuler(nbBrainGroup.rotation);
+    var p = nbProjectTo2D(regionCenter);
+    var el = nbLabelElements[idx];
+    if (!el) return;
+    if (p.behind) {
+      el.style.opacity = '0';
+      el.style.pointerEvents = 'none';
+    } else {
+      el.style.left = p.x + 'px';
+      el.style.top = p.y + 'px';
+      el.style.opacity = '1';
+      el.style.pointerEvents = 'auto';
+    }
   });
-  hoveredNode=hit;
-  var tt=document.getElementById('bm-tooltip');
-  if(hit&&tt){
-    document.getElementById('bm-tt-name').textContent=hit.label;
-    document.getElementById('bm-tt-type').textContent=hit.type.toUpperCase();
-    document.getElementById('bm-tt-info').textContent='Links: '+hit.links+' · Conf: '+hit.conf;
-    tt.style.left=(e.clientX-rect.left+16)+'px';
-    tt.style.top=(e.clientY-rect.top-12)+'px';
-    tt.classList.remove('hidden');
-    canvas.style.cursor='pointer';
-  } else {
-    if(tt)tt.classList.add('hidden');
-    canvas.style.cursor=dragging?'grabbing':'grab';
-  }
-}
-function onWheel(e){targetZoom=Math.max(0.3,Math.min(3,targetZoom*(e.deltaY<0?1.12:0.88)));}
-function onDblClick(e){
-  if(!hoveredNode)return;
-  selectedNode=hoveredNode;var n=selectedNode;
-  var ids=['bm-insp-title','bm-insp-id','bm-insp-type','bm-insp-links','bm-insp-conf','bm-insp-access','bm-insp-status','bm-insp-desc'];
-  var vals=[n.label,n.id,n.type.toUpperCase(),n.links,n.conf,n.access,'ACTIVE',n.desc];
-  ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.textContent=vals[i];});
-  var shell=document.querySelector('.bm-shell');
-  if(shell)shell.classList.add('inspector-open');
+
+  nbRenderer.render(nbScene, nbCamera);
 }
 
-function bmCloseInspector(){var shell=document.querySelector('.bm-shell');if(shell)shell.classList.remove('inspector-open');selectedNode=null;}
-function bmZoom(f){targetZoom=Math.max(0.3,Math.min(3,targetZoom*f));}
-function bmReset(){targetRotX=0.35;targetRotY=0;targetPanX=0;targetPanY=0;targetZoom=1;}
-function bmStimulate(){
-  for(var i=0;i<50;i++){
-    (function(idx){setTimeout(function(){
-      var sources=NODES.filter(function(n){return n.id!=='core';});
-      var src=sources[Math.floor(Math.random()*sources.length)];
-      var col=COLORS[src.type]||'#fff';
-      var p3=nodePos3D[src.id]||{x3:0,y3:0,z3:0};
-      var s=project(p3.x3,p3.y3,p3.z3),c=project(0,0,0);
-      particles.push({fromId:src.id,toId:'core',sx:s.sx,sy:s.sy,tx:c.sx,ty:c.sy,x:s.sx,y:s.sy,t:0,speed:0.022+Math.random()*0.018,r:4.5,scale:s.scale,color:col,srcType:src.type});
-    },idx*35);})(i);
-  }
-}
-function bmSetFilter(f,el){
-  filterMode=f;
-  document.querySelectorAll('.bm-filter-btn').forEach(function(b){b.classList.remove('active-filter');});
-  if(el)el.classList.add('active-filter');
+function nbHandleClick(e) {
+  var container = document.getElementById('page-brain_map');
+  var rect = container.getBoundingClientRect();
+  var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  var closest = -1, minDist = 90;
+  NB_REGIONS.forEach(function(region, idx) {
+    var regionCenter = new THREE.Vector3(region.pos[0], region.pos[1], region.pos[2]);
+    var p = nbProjectTo2D(regionCenter);
+    var d = Math.hypot(p.x - mx, p.y - my);
+    if (d < minDist) { minDist = d; closest = idx; }
+  });
+  if (closest >= 0) nbOpenModal(closest);
 }
 
-window.bmCloseInspector=bmCloseInspector;
-window.bmZoom=bmZoom;
-window.bmReset=bmReset;
-window.bmStimulate=bmStimulate;
-window.bmSetFilter=bmSetFilter;
+function nbOnResize() {
+  var container = document.getElementById('page-brain_map');
+  if (!container || !nbRenderer) return;
+  var W = container.clientWidth, H = container.clientHeight;
+  nbCamera.aspect = W/H;
+  nbCamera.updateProjectionMatrix();
+  nbRenderer.setSize(W, H);
+  nbBuildLabels();
+}
 
-var _prevNavToBM=window.navTo;
-window.navTo=function(pageId,navEl){
-  _prevNavToBM(pageId,navEl);
-  if(pageId==='brain_map'){setTimeout(function(){if(!canvas)bmInit();else resize();},60);}
-};
-window.addEventListener('load',function(){
-  setTimeout(function(){
-    var page=document.getElementById('page-brain_map');
-    if(page&&page.classList.contains('active-page'))bmInit();
-  },200);
+/* ── ZOOM / RESET ── */
+function nbZoom(f) { nbTargetZoom = Math.max(3, Math.min(13, nbTargetZoom * f)); }
+function nbReset() { nbTargetRotX = 0.25; nbTargetRotY = -0.3; nbTargetZoom = 6.5; }
+window.nbZoom = nbZoom;
+window.nbReset = nbReset;
+
+/* ── NODE MODAL ── */
+function nbOpenModal(idx) {
+  var r = NB_REGIONS[idx];
+  var now = new Date();
+  document.getElementById('nb-modal-accent').style.background = r.cssColor;
+  document.getElementById('nb-modal-icon').textContent = r.icon;
+  document.getElementById('nb-modal-name').textContent = r.name;
+  document.getElementById('nb-modal-name').style.color = r.cssColor;
+  document.getElementById('nb-modal-id').textContent = 'Region #' + String(idx+1).padStart(2,'0') + ' · Mapped to ' + r.file;
+  document.getElementById('nb-modal-neurons').textContent = r.neurons;
+  document.getElementById('nb-modal-firing').textContent = nbFiringRates[idx].toFixed(2) + '%';
+  document.getElementById('nb-modal-time').textContent = now.toLocaleTimeString();
+  document.getElementById('nb-modal-file').textContent = r.file;
+  document.getElementById('nb-modal-desc').textContent = r.desc;
+  document.getElementById('nb-modal-filepath-text').textContent = r.path;
+  document.getElementById('nb-node-modal').classList.add('open');
+}
+function nbCloseModal() { document.getElementById('nb-node-modal').classList.remove('open'); }
+window.nbCloseModal = nbCloseModal;
+
+var nbModalEl = document.getElementById('nb-node-modal');
+if (nbModalEl) {
+  nbModalEl.addEventListener('click', function(e){ if(e.target===this) nbCloseModal(); });
+}
+
+/* ── HOOK INTO EXISTING navTo FOR brain_map ── */
+(function() {
+  var _origNav = window.navTo;
+  window.navTo = function(pageId, navEl) {
+    _origNav && _origNav(pageId, navEl);
+    if (pageId === 'brain_map') {
+      setTimeout(function() {
+        if (!nbScene) nbInit();
+        else nbOnResize();
+      }, 80);
+    }
+  };
+})();
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var page = document.getElementById('page-brain_map');
+    if (page && page.classList.contains('active-page')) nbInit();
+  }, 250);
 });
 
 })();
+
+
 
 /* ═══════════════════════════════════════
    MEMORY PAGE FUNCTIONS
@@ -8947,5 +9247,389 @@ window.addEventListener('load',function(){
 })();
 
 </script>
+
+<script>
+/* BRIDGE_PHASE3_DEDUPE_WIRING
+   One path only: HTML -> Python bridge.
+   No local echo. Backend owns chat display.
+*/
+(function () {
+  function apiReady() {
+    return window.pywebview && window.pywebview.api;
+  }
+
+  const lastCall = {};
+
+  function callApi(name, ...args) {
+    const now = Date.now();
+    const key = name + ":" + JSON.stringify(args || []);
+    if (lastCall[key] && now - lastCall[key] < 900) {
+      return;
+    }
+    lastCall[key] = now;
+
+    try {
+      if (apiReady() && typeof window.pywebview.api[name] === "function") {
+        return window.pywebview.api[name](...args);
+      }
+      console.log("Yui bridge not ready for:", name);
+    } catch (err) {
+      console.error("Yui bridge call failed:", name, err);
+    }
+  }
+
+  function findChatInput() {
+    return document.querySelector("#conv-input")
+        || document.querySelector(".conv-input")
+        || document.querySelector("#chat-input")
+        || document.querySelector("input[placeholder*='message' i]")
+        || document.querySelector("input[placeholder*='type' i]");
+  }
+
+  let lastSendText = "";
+  let lastSendTime = 0;
+
+  function sendFromBox() {
+    const input = findChatInput();
+    if (!input) return;
+
+    const text = (input.value || "").trim();
+    if (!text) return;
+
+    const now = Date.now();
+    if (text === lastSendText && now - lastSendTime < 1500) {
+      input.value = "";
+      return;
+    }
+
+    lastSendText = text;
+    lastSendTime = now;
+    input.value = "";
+
+    // Do NOT echo locally. Python/backend will write the visible chat line.
+    callApi("send_message", text);
+  }
+
+  window.sendChatMsg = sendFromBox;
+  window.sendMessage = sendFromBox;
+  window.send_message = sendFromBox;
+
+  window.dockStopTalking = function () {
+    callApi("stop_talking");
+    if (typeof window.setStatus === "function") window.setStatus("IDLE");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+
+  window.stopTalking = window.dockStopTalking;
+
+  window.dockMicOff = function () {
+    callApi("set_voice_mode", "off");
+    if (typeof window.setStatus === "function") window.setStatus("MIC OFF");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+
+  window.micOff = window.dockMicOff;
+
+  window.dockHandsFree = function () {
+    callApi("set_voice_mode", "hands_free");
+    if (typeof window.setStatus === "function") window.setStatus("LISTENING");
+    if (typeof window.setMood === "function") window.setMood("listening");
+  };
+
+  window.handsFree = window.dockHandsFree;
+
+  window.dockPushToTalkPress = function () {
+    callApi("ptt_press");
+    if (typeof window.setStatus === "function") window.setStatus("LISTENING");
+    if (typeof window.setMood === "function") window.setMood("listening");
+  };
+
+  window.dockPushToTalkRelease = function () {
+    callApi("ptt_release");
+    if (typeof window.setStatus === "function") window.setStatus("IDLE");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+
+  // Also override older function names used by the current HTML.
+  window.dockPttPress = window.dockPushToTalkPress;
+  window.dockPttRelease = window.dockPushToTalkRelease;
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const input = findChatInput();
+    if (input) {
+      input.onkeydown = function (event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          event.stopPropagation();
+          sendFromBox();
+          return false;
+        }
+      };
+    }
+
+    const sendBtn = document.querySelector(".conv-send");
+    if (sendBtn) {
+      sendBtn.onclick = function (event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        sendFromBox();
+        return false;
+      };
+    }
+
+    const mic = document.querySelector(".dock-mic");
+    if (mic) {
+      mic.onmousedown = function (event) {
+        if (event) event.preventDefault();
+        window.dockPushToTalkPress();
+        return false;
+      };
+      mic.onmouseup = function (event) {
+        if (event) event.preventDefault();
+        window.dockPushToTalkRelease();
+        return false;
+      };
+      mic.onmouseleave = function () {
+        window.dockPushToTalkRelease();
+      };
+    }
+  });
+})();
+</script>
+
+
+<script>
+/* BRIDGE_PHASE4_ECHOFIX
+   Fixes delay caused by no local echo.
+   Keeps dedupe by blocking backend duplicate "You:" line.
+*/
+(function () {
+  let lastLocalUserText = "";
+  let lastLocalUserTime = 0;
+  let lastApiCall = {};
+
+  function apiReady() {
+    return window.pywebview && window.pywebview.api;
+  }
+
+  function callApi(name, ...args) {
+    const now = Date.now();
+    const key = name + ":" + JSON.stringify(args || []);
+    if (lastApiCall[key] && now - lastApiCall[key] < 800) return;
+    lastApiCall[key] = now;
+
+    try {
+      if (apiReady() && typeof window.pywebview.api[name] === "function") {
+        return window.pywebview.api[name](...args);
+      }
+    } catch (err) {
+      console.error("Yui bridge call failed:", name, err);
+    }
+  }
+
+  function findChatInput() {
+    return document.querySelector("#conv-input")
+        || document.querySelector(".conv-input")
+        || document.querySelector("#chat-input")
+        || document.querySelector("input[placeholder*='message' i]")
+        || document.querySelector("input[placeholder*='type' i]");
+  }
+
+  // Wrap yuiChat once so backend echo does not duplicate local echo.
+  if (typeof window.yuiChat === "function" && !window.yuiChat.__phase4Wrapped) {
+    const originalYuiChat = window.yuiChat;
+    window.yuiChat = function (text) {
+      const raw = String(text ?? "");
+      if (raw.startsWith("You:")) {
+        const body = raw.slice(4).trim();
+        const now = Date.now();
+        if (body === lastLocalUserText && now - lastLocalUserTime < 8000) {
+          return;
+        }
+      }
+      return originalYuiChat(text);
+    };
+    window.yuiChat.__phase4Wrapped = true;
+  }
+
+  let lastSendText = "";
+  let lastSendTime = 0;
+
+  function sendFromBox() {
+    const input = findChatInput();
+    if (!input) return;
+
+    const text = (input.value || "").trim();
+    if (!text) return;
+
+    const now = Date.now();
+    if (text === lastSendText && now - lastSendTime < 1500) {
+      input.value = "";
+      return;
+    }
+
+    lastSendText = text;
+    lastSendTime = now;
+    lastLocalUserText = text;
+    lastLocalUserTime = now;
+
+    // Instant local echo so the chat window feels responsive.
+    if (typeof window.yuiChat === "function") {
+      const savedText = lastLocalUserText;
+      lastLocalUserText = "__LOCAL_ECHO_ALLOWED__";
+      window.yuiChat("You: " + text);
+      lastLocalUserText = savedText;
+      lastLocalUserTime = now;
+    }
+
+    input.value = "";
+    callApi("send_message", text);
+  }
+
+  window.sendChatMsg = sendFromBox;
+  window.sendMessage = sendFromBox;
+  window.send_message = sendFromBox;
+
+  window.dockStopTalking = function () {
+    callApi("stop_talking");
+    if (typeof window.setStatus === "function") window.setStatus("IDLE");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+  window.stopTalking = window.dockStopTalking;
+
+  window.dockMicOff = function () {
+    callApi("set_voice_mode", "off");
+    if (typeof window.setStatus === "function") window.setStatus("MIC OFF");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+  window.micOff = window.dockMicOff;
+  window.stopListening = window.dockMicOff;
+  window.dockStopListening = window.dockMicOff;
+
+  window.dockHandsFree = function () {
+    callApi("set_voice_mode", "hands_free");
+    if (typeof window.setStatus === "function") window.setStatus("LISTENING");
+    if (typeof window.setMood === "function") window.setMood("listening");
+  };
+  window.handsFree = window.dockHandsFree;
+
+  window.dockPushToTalkPress = function () {
+    callApi("ptt_press");
+    if (typeof window.setStatus === "function") window.setStatus("LISTENING");
+    if (typeof window.setMood === "function") window.setMood("listening");
+  };
+
+  window.dockPushToTalkRelease = function () {
+    callApi("ptt_release");
+    if (typeof window.setStatus === "function") window.setStatus("IDLE");
+    if (typeof window.setMood === "function") window.setMood("idle");
+  };
+
+  window.dockPttPress = window.dockPushToTalkPress;
+  window.dockPttRelease = window.dockPushToTalkRelease;
+
+  function wireControls() {
+    const input = findChatInput();
+    if (input) {
+      input.onkeydown = function (event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          event.stopPropagation();
+          sendFromBox();
+          return false;
+        }
+      };
+    }
+
+    const sendBtn = document.querySelector(".conv-send");
+    if (sendBtn) {
+      sendBtn.onclick = function (event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        sendFromBox();
+        return false;
+      };
+    }
+
+    document.querySelectorAll(".dock-btn, .dock-mic, button").forEach(function (btn) {
+      const label = (btn.innerText || btn.textContent || "").toLowerCase();
+
+      if (label.includes("stop talking")) {
+        btn.onclick = function (event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          window.dockStopTalking();
+          return false;
+        };
+      }
+
+      if (label.includes("stop listening") || label.includes("mic off") || label.includes("wake word off")) {
+        btn.onclick = function (event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          window.dockMicOff();
+          return false;
+        };
+      }
+
+      if (label.includes("hands-free") || label.includes("hands free")) {
+        btn.onclick = function (event) {
+          if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          window.dockHandsFree();
+          return false;
+        };
+      }
+
+      if (label.includes("push") && label.includes("talk")) {
+        btn.onmousedown = function (event) {
+          if (event) event.preventDefault();
+          window.dockPushToTalkPress();
+          return false;
+        };
+        btn.onmouseup = function (event) {
+          if (event) event.preventDefault();
+          window.dockPushToTalkRelease();
+          return false;
+        };
+        btn.onmouseleave = function () {
+          window.dockPushToTalkRelease();
+        };
+      }
+    });
+
+    const mic = document.querySelector(".dock-mic");
+    if (mic) {
+      mic.onmousedown = function (event) {
+        if (event) event.preventDefault();
+        window.dockPushToTalkPress();
+        return false;
+      };
+      mic.onmouseup = function (event) {
+        if (event) event.preventDefault();
+        window.dockPushToTalkRelease();
+        return false;
+      };
+      mic.onmouseleave = function () {
+        window.dockPushToTalkRelease();
+      };
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", wireControls);
+  setTimeout(wireControls, 500);
+})();
+</script>
+
 </body>
 </html>
