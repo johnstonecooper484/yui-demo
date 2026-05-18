@@ -19,7 +19,7 @@ planned interface. The backend AI system is under active
 development and is not included here.
 
 ## Try the Demo
-👉 https://johnstonecooper484.github.io/yui-demo/
+👉 [https://johnstonecooper484.github.io/yui-demo/](https://fartonice-dev.github.io/yui-demo/yui_hub.html)
 
 ## Legal
 All designs, concepts, code, and intellectual property 
